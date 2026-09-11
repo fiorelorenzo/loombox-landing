@@ -40,10 +40,14 @@ applied in a second commit, and the card closed only against evidence. What is t
 here:
 
 - **Scopes** for the subject: this repo's own `area:*` labels (`landing`, `copy`,
-  `design`, `deploy`); nothing in the commit history so far has needed a narrower one.
-- **Required check**: none. `main`'s only ruleset rules are `deletion` and
-  `non_fast_forward`, so no status check is required and a direct push to `main` is
-  allowed.
+  `design`, `deploy`), plus `repo` for a change to the repo's own conventions
+  (`AGENTS.md`, `.github/`), and the bare types this history already uses (`feat:`,
+  `docs:`, `chore:`) when nothing narrower fits.
+- **Required check**: none, and no CI to wait for. This repo has no workflows of its
+  own (only GitHub's implicit Dependabot updates), so `gh pr checks <n>` reports
+  nothing here. `main`'s only ruleset rules are `deletion` and `non_fast_forward`, so
+  no status check is required and a direct push to `main` is allowed. Verification is
+  local: `pnpm lint`, `pnpm check`, `pnpm build`.
 - **Merge**: `main` takes direct pushes; open a PR only when a change actually wants
   review. Squash, merge and rebase are all enabled and auto-merge is off, so merge by
   hand once review is done: `gh pr merge <n> --squash --delete-branch` (squash keeps
