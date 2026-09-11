@@ -30,6 +30,27 @@ estimate work as native fields.
 
 `area:*` values here: `landing`, `copy`, `design`, `deploy`.
 
+## Pull requests
+
+One shape for every repo of mine: `skill://opening-a-pull-request`. The issue and its
+neighbours before the branch, the branch name Linear renders on the issue, Conventional
+Commits in the first person, the body's four sections from
+`.github/PULL_REQUEST_TEMPLATE.md` (Screenshots is never deleted), an independent review
+applied in a second commit, and the card closed only against evidence. What is true only
+here:
+
+- **Scopes** for the subject: this repo's own `area:*` labels (`landing`, `copy`,
+  `design`, `deploy`); nothing in the commit history so far has needed a narrower one.
+- **Required check**: none. `main`'s only ruleset rules are `deletion` and
+  `non_fast_forward`, so no status check is required and a direct push to `main` is
+  allowed.
+- **Merge**: `main` takes direct pushes; open a PR only when a change actually wants
+  review. Squash, merge and rebase are all enabled and auto-merge is off, so merge by
+  hand once review is done: `gh pr merge <n> --squash --delete-branch` (squash keeps
+  the flat history a direct push would have left; `delete_branch_on_merge` is off
+  repo-wide, so pass `--delete-branch` yourself). Afterward bring the local trunk back
+  with `git checkout main && git pull --ff-only`.
+
 ## Writing style
 
 Repo-facing text (issues, PRs, commits, comments) is first person as Lorenzo, in English,
