@@ -44,7 +44,9 @@ kit, then `kit.py sync`.
 The rules in five lines, for an agent with no skills: file the card before the branch;
 Conventional Commits in the first person, the card id as the last line (`LOR-N.`); the PR
 body keeps the template's sections, Screenshots included; its last line is `Linear: LOR-N.`;
-squash merge once review is done.
+squash merge once review is done; an independent review is applied in a second
+commit before the PR opens, and the card is closed only against evidence (a comment with the
+merge sha and what was verified).
 
 What is true only here:
 
