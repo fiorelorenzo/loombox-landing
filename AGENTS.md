@@ -30,14 +30,23 @@ estimate work as native fields.
 
 `area:*` values here: `landing`, `copy`, `design`, `deploy`.
 
-## Pull requests
+## Workflow kit
 
-One shape for every repo of mine: `skill://opening-a-pull-request`. The issue and its
-neighbours before the branch, the branch name Linear renders on the issue, Conventional
-Commits in the first person, the body's four sections from
-`.github/PULL_REQUEST_TEMPLATE.md` (Screenshots is never deleted), an independent review
-applied in a second commit, and the card closed only against evidence. What is true only
-here:
+The procedure for cards, commits and pull requests is the workflow kit's, copied from
+`letsrebase/rebase` (`tooling/workflow-kit/`): the skills `linear-ticket`, `linear-content`
+and `pr-creation` in `.agents/skills/` (a copy in `.claude/skills/` for Claude Code), the
+data in `.github/workflow.json`. A hook refuses a malformed Linear write in Claude Code and
+in omp. This repo has no CI, so nothing checks the kit's copy or a PR's text for you: run
+`python3 .github/kit/bin/kit.py check` and `python3 .github/kit/bin/pr_lint.py --title ...
+--body-file ...` yourself before opening a PR. Do not edit the kit's files here: change the
+kit, then `kit.py sync`.
+
+The rules in five lines, for an agent with no skills: file the card before the branch;
+Conventional Commits in the first person, the card id as the last line (`LOR-N.`); the PR
+body keeps the template's sections, Screenshots included; its last line is `Linear: LOR-N.`;
+squash merge once review is done.
+
+What is true only here:
 
 - **Scopes** for the subject: this repo's own `area:*` labels (`landing`, `copy`,
   `design`, `deploy`), plus `repo` for a change to the repo's own conventions
